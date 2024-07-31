@@ -1,4 +1,6 @@
-﻿namespace MobilePrototype
+﻿using MobilePrototype.View;
+
+namespace MobilePrototype
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new LandingPage());
         }
     }
 }

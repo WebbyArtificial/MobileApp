@@ -1,4 +1,4 @@
-﻿namespace MobilePrototype.Pages
+﻿namespace MobilePrototype
 {
     public partial class MainPage : ContentPage
     {
@@ -10,7 +10,7 @@
 
         private void OnCounterClicked(object sender, EventArgs e)
         {
-            Shell.Current.GoToAsync("LoginPage");
+
         }
     }
 

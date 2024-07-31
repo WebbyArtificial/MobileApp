@@ -43,6 +43,48 @@ builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSe
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+
+    var services = scope.ServiceProvider;
+
+    //var local = services.GetRequiredService<ILocalStorageService>();
+    //var res = await local.GetItemAsync<string>("culture");
+
+    var contextCore = services.GetRequiredService<ApplicationDbContext>();
+    //var userManager = services.GetService<UserManager<ApplicationUser>>();
+    //var roleManager = services.GetService<RoleManager<IdentityRole>>();
+    //var userStore = services.GetService<IUserStore<ApplicationUser>>();
+
+
+
+    if (contextCore.Database.IsSqlServer())
+    {
+        await contextCore.Database.MigrateAsync();
+
+
+        //IdentityRole roleAdmin = new IdentityRole()
+        //{
+        //    Name = "Admin",
+        //    NormalizedName = "ADMIN"
+        //};
+
+        //IdentityRole roleDip = new IdentityRole()
+        //{
+        //    Name = "Dipendente",
+        //    NormalizedName = "DIPENDENTE"
+        //};
+        //await roleManager.CreateAsync(roleAdmin);
+        //await roleManager.CreateAsync(roleDip);
+
+
+        //DbSeeder seeder = new DbSeeder(contextCore, userManager, userStore);
+
+        //await seeder.SeedDb();
+    }
+}
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

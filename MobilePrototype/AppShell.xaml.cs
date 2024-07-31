@@ -1,6 +1,4 @@
 ﻿
-using MobilePrototype.Pages;
-
 namespace MobilePrototype
 {
     public partial class AppShell : Shell
@@ -9,7 +7,6 @@ namespace MobilePrototype
         {
             InitializeComponent();
 
-            Routing.RegisterRoute("LoginPage", typeof(LoginPage));
         }
     }
 }

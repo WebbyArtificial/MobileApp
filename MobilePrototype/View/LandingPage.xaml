@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobilePrototype.View.LandingPage"
+             Title="LandingPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <ControlTemplate x:Key="SectionTemplate">
+                <Border WidthRequest="120"
+                        StrokeShape="RoundRectangle 20" 
+                        StrokeThickness="0" 
+                        Background="WhiteSmoke">
+
+                    <Label x:Name="label" 
+                           Text="{TemplateBinding Content}" 
+                           FontSize="14"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+
+                </Border>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <Grid RowDefinitions="Auto, Auto, *" 
+          HorizontalOptions="FillAndExpand" 
+          VerticalOptions="FillAndExpand" 
+          Padding="32"  
+          BackgroundColor="White" 
+          RowSpacing="32">
+
+
+        <Grid HorizontalOptions="FillAndExpand">
+
+            <VerticalStackLayout VerticalOptions="Center" 
+                                 Spacing="5">
+
+                <Label Text="Welcome back" 
+                       TextColor="Black" 
+                       Opacity="0.5" 
+                       FontSize="12"/>
+
+                <Label Text="Andrea" 
+                       TextColor="Black" 
+                       FontAttributes="Bold" 
+                       FontSize="16"/>
+
+
+            </VerticalStackLayout>
+
+            <Border WidthRequest="48" 
+                    HeightRequest="48" 
+                    VerticalOptions="Center" 
+                    HorizontalOptions="End"
+                    StrokeShape="RoundRectangle 24,24,24,24"
+                    StrokeThickness="2"
+                    Stroke="CornflowerBlue">
+                <Image Source="https://i.redd.it/ynhqwfz8oiw81.jpg"/>
+
+            </Border>
+
+
+        </Grid>
+
+        <Grid Grid.Row="1" 
+                  RowDefinitions="Auto, Auto, *" 
+                  HorizontalOptions="FillAndExpand" >
+
+
+            <Label Text="Roma" 
+                       TextColor="Black" 
+                       FontAttributes="Bold" 
+                       FontSize="24"
+                       VerticalOptions="Center"/>
+
+            <Image Source="map.png" 
+                   WidthRequest="25" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="End"/>
+
+
+            <Line Grid.Row="1" 
+                  X1="0" 
+                  X2="1000" 
+                  Stroke="Grey" />
+
+            <ScrollView Orientation="Horizontal" 
+                        Grid.Row="2" 
+                        HorizontalScrollBarVisibility="Never">
+
+                <HorizontalStackLayout x:Name="SectionList" 
+                                       Margin="0,20,0,0" 
+                                       BindableLayout.ItemsSource="{Binding Sections}"
+                                       Spacing="10">
+
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+
+                            <RadioButton Content="{Binding .}" ControlTemplate="{StaticResource SectionTemplate}">
+
+
+                            </RadioButton>
+
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+
+                </HorizontalStackLayout>
+
+
+            </ScrollView>
+
+
+
+        </Grid>
+
+    </Grid>
+
+
+
+</ContentPage>
+    
+
+    
