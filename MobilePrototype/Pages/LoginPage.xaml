@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobilePrototype.Pages.LoginPage"
+             Title="LoginPage">
+
+
+    <ContentPage.Content>
+        <StackLayout Padding="30" VerticalOptions="CenterAndExpand">
+
+            <Label Text="Welcome to MAUI Login Page"
+                   FontSize="Large"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand"/>
+
+            <Entry x:Name="UsernameEntry"
+                   Placeholder="Username"
+                   Keyboard="Email"
+                   VerticalOptions="CenterAndExpand"/>
+
+            <Entry x:Name="PasswordEntry"
+                   Placeholder="Password"
+                   IsPassword="True"
+                   VerticalOptions="CenterAndExpand"/>
+
+            <Button Text="Login"
+                    Clicked="OnLoginButtonClicked"
+                    VerticalOptions="CenterAndExpand"/>
+
+            <Label x:Name="ErrorMessage"
+                   TextColor="Red"
+                   IsVisible="False"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+
+
+</ContentPage>
